@@ -37,15 +37,20 @@ session_start();
         $query_run = mysqli_query($conn,$query);
         if(mysqli_num_rows($query_run)>0){
             while($row= mysqli_fetch_assoc($query_run)){
+
+                $query1 = "SELECT tickets FROM login WHERE email='{$_SESSION['email']}'";
+                $query_run1 = mysqli_query($conn,$query1);
+                if(mysqli_num_rows($query_run1)>0){
+                    while($row1=mysqli_fetch_assoc($query_run1)){
+                        ?>
                 
-                ?>
        
 		<div class="course-preview">
 			<h6>Buy Tickets</h6>
 			<h2><?php echo $row['name']; ?></h2>
 		</div>
 		<div class="course-info">
-			<h6>Tickets Left : <?php echo $_SESSION['tickets']; ?></h6>
+			<h6>Tickets Left : <?php echo $row1['tickets'];?> </h6>
 			<h4>Stand Selected : <?php echo $row['stand_name']; ?></h4>
             <h4>Seats Left : <?php echo $row['seats']; ?></h4>
             <h6>Select No of Seats:</h6>
@@ -75,6 +80,11 @@ session_start();
 
 			<!-- <button class="btnn">Buy Tickets</button> -->
 		</div>
+        <?php
+                    }
+                }
+                
+                ?>
         <?php
             }
         }

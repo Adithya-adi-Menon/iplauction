@@ -14,12 +14,18 @@ if(isset($_POST['register'])) {
 		$stmt = $conn->prepare("INSERT INTO login (username,password,email,phone,tickets) VALUES (?, ?, ?, ?, ?)");
 		$stmt->bind_param("sssss", $user_name, $user_password,$user_email,$user_phone,$limit);
 		$stmt->execute();
-		echo "Registration Successful.";
+        echo "<script type='text/javascript'>alert('Registration Success . Please Login.');
+        window.location.href='../index.php';
+        
+        </script>";
 
 	} else {
-		echo "Email Already Exists";
+        echo "<script type='text/javascript'>alert('Email Already Exists ');
+        window.location.href='../index.php';
+        
+        </script>";
 	}
-    
+
        
        
         

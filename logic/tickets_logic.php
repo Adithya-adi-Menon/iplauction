@@ -14,6 +14,7 @@ if(isset($_POST['buy'])){
     if(mysqli_num_rows($query_run)>0){
         while($row=mysqli_fetch_assoc($query_run)){
             $ticket_available = $row['tickets'];
+            $_SESSION['ticket'] = $ticket_available;
             if($count<=$ticket_available){
                 $total_tickets = $ticket_available-$count;
                 $query1 = "UPDATE login SET tickets='$total_tickets' WHERE email='{$_SESSION['email']}'";
@@ -28,17 +29,24 @@ if(isset($_POST['buy'])){
                             $query4 = "UPDATE stand SET seats='$bookseats' WHERE stand_name='$stand_selected' AND match_id='$branch'";
                             $query_run3 = mysqli_query($conn,$query4);
 
+                            $_SESSION['ticketsused'] = $count;
+                            $_SESSION['stand']=$stand_selected;
+
                         }
                     }
                     else echo 'error';
                             
                     echo "Tickets bought successfully";
+                    header('Location:../receipt.php');
                 }
                 else{
                     echo 'falied';
                 }
             }else{
-                echo 'ticket limit exceeded';
+                echo "<script type='text/javascript'>alert('Ticket Limit Exceeded');
+                window.location.href='../matches.php';
+                
+                </script>";
             }
         }
     }
