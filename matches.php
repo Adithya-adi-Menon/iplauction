@@ -40,10 +40,22 @@ session_start();
 
         <a class="nav-link" href="#">User: <?php echo $_SESSION['email']; ?><span class="sr-only">(current)</span></a>
       </li>
-    
+>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="logout.php" method="post">
-     
+    <?php 
+require 'dbconfig.php';
+ $query1 = "SELECT tickets FROM login WHERE email='{$_SESSION['email']}'";
+ $query_run1 = mysqli_query($conn,$query1);
+ if(mysqli_num_rows($query_run1)>0){
+     while($row1=mysqli_fetch_assoc($query_run1)){
+
+?>
+    <a class="form-control mr-sm-2">Your Tickets:<?php echo $row1['tickets'] ?></a>
+    <?php
+     }
+    }
+?>
       <input type="submit"  name="logout" class="btn btn-outline-success my-2 my-sm-0" value="Logout">
     </form>
   </div>
@@ -57,7 +69,7 @@ session_start();
         <div class="container">
             <div class="row">
             <?php
-                    require 'dbconfig.php';
+                   
                     $query = "SELECT * FROM matches";
                     $query_run = mysqli_query($conn,$query);
                      if(mysqli_num_rows($query_run)>0){
