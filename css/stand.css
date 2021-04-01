@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&display=swap');
+:root {
+    --dark-bg: rgb(29, 34, 37);
+    --dark-text-color: #FFF;
+    --light-bg: rgb(219, 219, 219);
+    --light-text-color: var(--dark-bg);
+    --basic-btn: rgb(61, 111, 218);
+    --basic-btn-hover: rgb(17, 42, 97);
+    --standard-btn: rgb(147, 61, 218);
+    --standard-btn-hover: rgb(65, 18, 104);
+    --premium-btn: rgb(61, 218, 113);
+    --premium-btn-hover: rgb(23, 143, 63);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    background-color: var(--dark-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .2s ease-in;
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 100px 50px;
+}
+
+.card {
+    position: relative;
+    width: 250px;
+    height: auto;
+    background-color: var(--dark-bg);
+    border-radius: 20px;
+    padding: 10px;
+    color: #FFF;
+    box-shadow: 0px 0px 25px #000;
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    margin: 20px;
+    transition: all .2s ease-in;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+.card .icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--basic-btn);
+    color: rgb(255, 255, 255);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    margin: 20px 0;
+}
+
+.card h3, .card sup {
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.card h4 {
+    font-size: 4rem;
+}
+
+.card ul {
+    list-style: none;
+}
+.card ul li {
+    padding: 2px 0;
+}
+
+.card ul li .fa-check {
+    color: rgb(12, 99, 31);
+}
+.card ul li .fa-times {
+    color: rgb(99, 12, 12);
+}
+
+.card .btn {
+    padding: 10px 20px;
+    background-color: var(--basic-btn);
+    border-radius: 25px;
+    margin: 20px;
+    text-decoration: none;
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color .2s ease-in;
+}
+
+.card .btn:hover {
+    background-color: var(--basic-btn-hover);
+}
+.card .standard {
+    background-color: var(--standard-btn)
+}
+.card .btn.standard:hover {
+    background-color: var(--standard-btn-hover);
+}
+.card .premium {
+    background-color: var(--premium-btn)
+}
+.card .btn.premium:hover {
+    background-color: var(--premium-btn-hover);
+}
+
+.light-dark-btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: var(--dark-text-color);
+    top: 20px;
+    left: calc(50% - 30px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px #000;
+    transition: background-color .2s ease-in;
+}
+.light-dark-btn::before {
+    content: '\f185';
+    font-family: fontAwesome;
+}
+
+/* LIGHT THEME*/
+
+body.light .light-dark-btn::before {
+    content: '\f186';
+    font-family: fontAwesome;
+}
+
+body.light .light-dark-btn {
+    color: var(--dark-text-color);
+    background-color: var(--dark-bg);
+}
+
+body.light {
+    background-color: var(--light-bg);
+}
+
+body.light .card {
+    background-color: var(--light-bg);
+    color: var(--light-text-color);
+}
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+ .space {
+	 margin: 0;
+	 padding: 0;
+	 height: 30vh;
+	 font-family: 'Noto Sans';
+}
+ .ticket {
+	 width: 380px;
+	 height: 160px;
+	 transition: all 0.4s ease;
+	 position: absolute;
+	 top: 50%;
+	 left: 50%;
+	 transform: translate(-50%, -50%);
+}
+ .ornament {
+	 background: #fbad18;
+	 width: 65%;
+	 height: inherit;
+	 position: absolute;
+	 border: 1px solid #ffa726;
+	 border-right: none;
+	 transition: all 0.4s ease;
+	 z-index: 1;
+}
+ .ornament__cut {
+	 background: #e0e0e0;
+	 width: 22px;
+	 height: 12.1px;
+	 position: absolute;
+	 left: 10%;
+	 z-index: 5;
+}
+ .ornament__cut--1 {
+	 top: -1%;
+	 border-radius: 0 0 100px 100px;
+}
+ .ornament__cut--2 {
+	 bottom: -1%;
+	 border-radius: 100px 100px 0 0;
+}
+ .ornament__tail {
+	 background: #f57c00;
+	 width: 12px;
+	 height: inherit;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+}
+ .illustration {
+	 background: white;
+	 width: 35%;
+	 height: inherit;
+	 position: absolute;
+	 right: 0;
+	 transition: all 0.4s ease;
+	 border: 1px inset rgba(0, 0, 0, 0.08);
+	 border-left: none;
+	 border-radius: 0 4px 4px 0;
+	 overflow: hidden;
+}
+ .new-label {
+	 background: #ffa726;
+	 width: 50px;
+	 text-align: center;
+	 padding: 0.2em;
+	 border-radius: 8px;
+	 position: absolute;
+	 top: 2%;
+	 right: 2%;
+	 color: white;
+	 font-size: 13px;
+}
+ .spikes {
+	 display: flex;
+	 flex-direction: column;
+	 justify-content: flex-start;
+	 align-items: flex-start;
+	 flex-wrap: nowrap;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 width: 10px;
+	 margin-left: -12px;
+}
+ .spike {
+	 background: #ffa726;
+	 width: 20px;
+	 height: 20px;
+	 transform: rotate(45deg);
+}
+ .content {
+	 width: 80%;
+	 position: absolute;
+	 top: 50%;
+	 left: 55%;
+	 transform: translate(-50%, -50%);
+}
+ .content p {
+	 font-size: 16px;
+	 font-weight: bold;
+	 margin-top: 0;
+	 margin-bottom: 8px;
+}
+ .content .link-join {
+	 background: white;
+	 border-radius: 4px;
+	 padding: 0.3em 1em;
+	 font-size: 12px;
+	 font-weight: bold;
+	 color: #ffa726;
+	 text-decoration: none;
+}
+ .content .link-join:focus, .content .link-join:active, .content .link-join:hover {
+	 color: #ffa726;
+	 text-decoration: none;
+}
