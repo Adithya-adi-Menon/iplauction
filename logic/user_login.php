@@ -6,6 +6,7 @@ include("../dbconfig.php");
     $result = mysqli_query($conn, "SELECT * FROM login WHERE email = '" . $user_email . "' and password = '" . $user_password . "'");
     if ($row = mysqli_fetch_array($result)) {
         $_SESSION['email'] = $row['email'];
+        $_SESSION['tickets'] = $row['tickets'];
         header('Location:../matches.php');
         // $_SESSION["loggedin"]= true;
         echo "LoginSuccess";
